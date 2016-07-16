@@ -1,0 +1,19 @@
+body{
+    background-color: #1c506c;
+}
+
+.lighterColor{
+    color: #8697a3;
+}
+
+.evenLighterColor{
+    color: #c4e3f3;
+}
+
+.darkerColor{
+    color: #fdfbff;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none !important;
+}

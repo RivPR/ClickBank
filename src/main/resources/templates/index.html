@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"/>
+
+<head lang="en">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>ClickBank devtest answers</title>
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+    <script src="https://mvnrepository.com/artifact/org.webjars.npm/angular2"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    <link href="../static/css/mystyle.css"
+          th:href="@{css/mystyle.css}" rel="stylesheet" media="screen"/>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-route.min.js"></script>
+
+    <script src="/js/ngApp.js"></script>
+    <script src="/js/ngController.js"></script>
+    <script src="/js/ngFactory.js"></script>
+
+
+</head>
+<body ng-app="myApp">
+
+
+<div class="container">
+    <div class="lighterColor">
+    <h3>ClickBank dev test</h3>
+    </div>
+
+    <div ng-controller="userController" class="user">
+
+        <!--LOGGING IN-->
+        <div ng-show="!userDiv">
+            <input type="text" ng-model="email" placeholder="Email"/><br>
+            <input type="password" ng-model="password" placeholder="Password"/><br>
+            <button ng-click="logIn(email, password)" ng-hide="toggle(userDiv)" class="btn btn-success">Login</button>
+        </div>
+        <!--USER LOGGED IN -->
+
+        <div ng-show="userLoggedIn">
+
+            <h3 class="darkerColor">Welcome!</h3>
+            <h5 class="evenLighterColor">{{userLoggedIn.firstname}} {{userLoggedIn.lastname}}</h5>
+            <h6 class="lighterColor">Thank you for the opportunity!</h6>
+            <button class="btn btn-info active" ng-click="makeBricksDiv = !makeBricksDiv">Make Bricks</button>
+            <button class="btn btn-info active" ng-click="linearInDiv = !linearInDiv">LinearIn</button>
+            <button class="btn btn-info active" ng-click="bunnyEarsDiv = !bunnyEarsDiv">Bunny Ears</button>
+            <button class="btn btn-info active" ng-click="withoutStringDiv = !withoutStringDiv">Without String</button>
+            <button class="btn btn-info active" ng-click="lastTwoDiv = !lastTwoDiv">Last Two</button>
+
+            <!--MAKE BRICKS SECTION-->
+            <div ng-show="makeBricksDiv"><br>
+                <h3 class="darkerColor">Make Bricks</h3>
+                <h4 class="lighterColor">Enter however many large and small bricks you have and how long is the goal</h4>
+                <input type="text" ng-model="bigBricks" placeholder="Big Bricks">
+                <input type="text" ng-model="smallBricks" placeholder="Small Bricks">
+                <input type="text" ng-model="goal" placeholder="Goal">
+                <button class="btn btn-primary" ng-click="makeBricks(bigBricks, smallBricks, goal)">Make those bricks!</button>
+                <div ng-show="makeBricksResult">
+                    <h4 class="lighterColor">{{makeBricksResult.answer}}</h4>
+                </div><hr>
+            </div>
+            <!--END MAKE BRICKS-->
+
+
+            <!--LINEARIN SECTION-->
+            <div ng-show="linearInDiv"><br>
+                <h3 class="darkerColor">LinearIn</h3>
+                <h4 class="lighterColor">*@* separate Integers in <span>*ASCENDING*</span> order</h4>
+                <input type="text" ng-model="outer" placeholder="Outer Loop ex. 1 13 15 = 1@13@15">
+                <input type="text" ng-model="inner" placeholder="Inner Loop ex. 1 13 15 = 1@13@15">
+                <button class="btn btn-primary" ng-click="linearIn(outer, inner)">Line them up!</button>
+                <div ng-show="linearInResult">
+                    <br>
+                    <h4 class="lighterColor">{{linearInResult.answer}}</h4>
+                </div><hr>
+            </div>
+            <!--END LINEARIN SECTION-->
+
+            <!--BUNNY EARS SECTION-->
+            <div ng-show="bunnyEarsDiv"><br>
+                <h3 class="darkerColor">Bunny Ears</h3>
+                <h4 class="lighterColor">How many bunnies were you thinking?</h4>
+                <input type="text" ng-model="bunnies" placeholder="How many bunnies?">
+                <button class="btn btn-primary" ng-click="bunnyEars(bunnies)">Calculate the ears!</button>
+
+                <div ng-show="bunnyEarsResult"><br>
+                    <h4 class="lighterColor">{{bunnyEarsResult.answer}}</h4>
+                </div><hr>
+            </div>
+            <!--END BUNNY EARS SECTION-->
+
+            <!--WITHOUT STRING SECTION-->
+            <div ng-show="withoutStringDiv"><br>
+                <h3 class="darkerColor">Without String</h3>
+                <h4 class="lighterColor">Enter a phrase or word and what you would like to remove!</h4>
+                <input type="text" ng-model="base" placeholder="Phrase or word!">
+                <input type="text" ng-model="remove" placeholder="To remove">
+                <button class="btn btn-primary" ng-click="withoutString(base, remove)">Remove those strings!</button>
+
+                <div ng-show="withoutStringResult">
+                    <br>
+                    <h4 class="lighterColor">{{withoutStringResult.answer}}</h4>
+                </div><hr>
+            </div>
+            <!--END WITHOUT STRING SECTION-->
+
+            <!--LAST TWO SECTION-->
+            <div ng-show="lastTwoDiv"><br>
+                <h3 class="darkerColor">Last Two</h3>
+                <h4 class="lighterColor">Enter phrase to see the outcome!</h4>
+                <input type="text" ng-model="str" placeholder="Phrase to switch!">
+                <button class="btn btn-primary" ng-click="lastTwo(str)">Switch last two!</button>
+
+                <div ng-show="lastTwoResult">
+                    <br>
+                    <h4 class="lighterColor">{{lastTwoResult.answer}}</h4>
+                </div>
+            </div>
+            <!--END LAST TWO SECTION-->
+        </div>
+    </div>
+</div>
+</body>
+</html>
