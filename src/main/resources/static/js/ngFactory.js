@@ -9,7 +9,7 @@ app.factory('userGet', function($http){
         console.log('in factory');
         return $http({
             method: 'GET',
-            url: '/email?email=' + email
+            url: 'ClickBankJob/email/' + email
         })
 
     };
@@ -24,7 +24,7 @@ app.factory('userLogin', function($http){
         console.log('in factory login');
         return $http({
             method: 'GET',
-            url: '/login/' + email + '/' + password
+            url: '/ClickBankJob/login/' + email + '/' + password
         })
     };
     return {
@@ -37,7 +37,7 @@ app.factory('makeBricksFactory', function($http){
         console.log('in makebricks factory ' + big + ' ' + small + ' ' + goal);
         return $http({
             method: 'GET',
-            url: '/makebricks/'+ big + '/' + small + '/' + goal
+            url: '/ClickBankJob/makebricks/'+ big + '/' + small + '/' + goal
         })
     };
     return{
@@ -51,7 +51,7 @@ app.factory('linearInFactory', function($http){
 
         return $http({
             method: 'GET',
-            url: '/linearin/' + outerStr + '/' + innerStr
+            url: '/ClickBankJob/linearin/' + outerStr + '/' + innerStr
         })
     };
     return{
@@ -65,7 +65,7 @@ app.factory('bunnyEarsFactory', function($http){
 
         return $http({
             method: 'GET',
-            url: '/bunnyears/' + bunnies
+            url: '/ClickBankJob/bunnyears/' + bunnies
         })
     };
     return{
@@ -79,7 +79,7 @@ app.factory('withoutStringFactory', function($http){
 
         return $http({
             method: 'GET',
-            url: '/withoutstring/' + base + '/' + remove
+            url: '/ClickBankJob/withoutstring/' + base + '/' + remove
         })
     };
     return{
@@ -91,7 +91,7 @@ app.factory('lastTwoFactory', function($http){
     var lastTwo = function(str){
         return $http({
             method: 'GET',
-            url: '/lasttwo/' + str
+            url: '/ClickBankJob/lasttwo/' + str
         })
     };
     return{

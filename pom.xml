@@ -6,7 +6,7 @@
 	<groupId>com.clickbank</groupId>
 	<artifactId>clickbankjob</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>ClickBankJob</name>
 	<description>Job request project for Spring Boot</description>
@@ -59,6 +59,7 @@
             <artifactId>gson</artifactId>
             <version>2.7</version>
         </dependency>
+
 
         <!--WebJars-->
         <dependency>
